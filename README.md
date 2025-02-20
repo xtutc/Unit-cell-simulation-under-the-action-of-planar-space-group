@@ -4,5 +4,8 @@
 
 环境：
 
-python 3.9\quad ase 3.24.0\quad numpy 2.0.1\quad pandas 2.2.3
+python 3.9
+ase 3.24.0
+numpy 2.0.1
+pandas 2.2.3
 
