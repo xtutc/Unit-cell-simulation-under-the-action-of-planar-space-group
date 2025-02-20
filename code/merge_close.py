@@ -82,11 +82,18 @@ def merge_close_atoms(atoms: Atoms,
             groups[root] = []
         groups[root].append(i)
 
+    # 检查是否有原子合并
+    merged = False  # 用于检查是否有合并
+    for group in groups.values():
+        if len(group) > 1:
+            merged = True
+            break
+
     # 如果没有需要合并的组，提前退出
     if all(len(g) == 1 for g in groups.values()):
+        print("没有原子被合并。")
         return atoms
 
-    # 生成新的原子位置和种类
     # 生成新的原子位置和种类
     new_symbols = []
     new_positions = []
@@ -119,8 +126,14 @@ def merge_close_atoms(atoms: Atoms,
             new_symbols.append(merged_sym)
 
     # 确保 positions 和 symbols 长度一致
-    print(f"Number of new positions: {len(new_positions)}")
-    print(f"Number of new symbols: {len(new_symbols)}")
+    print(f"新原子位置数量: {len(new_positions)}")
+    print(f"新原子种类数量: {len(new_symbols)}")
+
+    # 打印是否有原子合并
+    if merged:
+        print("有原子被合并。")
+    else:
+        print("没有原子被合并。")
 
     # 更新 Atoms 对象
     current_atoms = Atoms(
@@ -129,3 +142,5 @@ def merge_close_atoms(atoms: Atoms,
         cell=cell,
         pbc=pbc
     )
+
+    return current_atoms

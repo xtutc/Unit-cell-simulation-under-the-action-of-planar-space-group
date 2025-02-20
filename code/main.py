@@ -49,7 +49,7 @@ def main():
     space_group_number = rand.integers(1, 18)
     print(f"随机选择的空间群: 第{space_group_number}个空间群")
 
-    num_atoms = rand.integers(4, 14)
+    num_atoms = rand.integers(10, 100)
     print(f"生成的原子数量: {num_atoms}")
     scale_position = rand.random((num_atoms, 3))
 
