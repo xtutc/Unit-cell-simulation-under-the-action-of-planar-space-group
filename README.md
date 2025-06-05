@@ -10,4 +10,4 @@ numpy 2.0.1
 pandas 2.2.3
 
 
-code(1)的
+code(1)的point_group包含32个点群
